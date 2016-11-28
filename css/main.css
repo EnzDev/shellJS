@@ -9,8 +9,7 @@
     padding: 1vh;
 }
 
-.line::before{
-  content: "visitor @ enzOs $";
+.line .before{
   padding-right: 1em;
 }
 
@@ -45,3 +44,4 @@ a {
 }
 
 .folder{color: red;}
+.block {color: wheat;}
