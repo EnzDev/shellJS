@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EnzOs</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- <script src="https://code.createjs.com/preloadjs-0.6.2.min.js" charset="utf-8"></script> -->
+    <script
+			  src="http://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+
+    <script src="js/os.js" charset="utf-8"></script>
+  </head>
+  <body lang="fr">
+    <form id="submiter" style="display:none;"></form>
+    <div class="main">
+      <div>Bienvenue sur EnzOs, il s'agit de mon site personnel. <br> Pour avoir une liste des principales commandes tapez <pre>help</pre>. <br> Si vous voulez juste voir mon CV cliquez <a href="#cv" onclick="openCV()">ici</a> ou cherchez dans le dossier about.</div>
+      <div class="line current"><input type="text" form="submiter" autofocus="autofocus" autocomplete="off"></div>
+    </div>
+
+    <script type="text/javascript">
+      function app(v) {
+        console.log(v);
+        $(".current").before("<div>"+v);
+      }
+
+      $("#submiter").submit(function(e){
+        e.preventDefault();
+        x = $("input")[0].value;
+
+        $(".current").before("<div class=\"line\">"+x);
+
+
+        x = x.split(" ");
+        if (x.length > 1){ app(commands.use(x[0], x.slice(1).join(" ")));
+      } else if (x.length == 1) { app(commands.use(x[0])); }
+
+        $("input")[0].value = "";
+
+        return false;
+      });
+    </script>
+
+  </body>
+</html>

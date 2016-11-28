@@ -1,0 +1,47 @@
+.main {
+    background: #111;
+    height: 98vh;
+    width: calc( 100vw - 2vh );
+    font-family: consolas;
+    line-height: 1.2em;
+    color: #2e2;
+
+    padding: 1vh;
+}
+
+.line::before{
+  content: "visitor @ enzOs $";
+  padding-right: 1em;
+}
+
+.line {line-height: 1.2em;}
+
+pre {
+    display: inline;
+    font-weight: bold;
+    /*border: solid;*/
+    border-radius: 0.3em;
+    background: #333;
+    padding: 0.01em 0.4em;
+}
+
+input {
+    width: 84%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+
+a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.ls{
+  padding-right: 1em;
+}
+
+.folder{color: red;}
