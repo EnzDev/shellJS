@@ -92,8 +92,10 @@ var commands = {};
         dir = dir[path];
         pathD.push(path);
       }
-      if (typeof(dir)=='object') enzos.wd = pathD;
-      return dir || "erreur"; // If dir is buggy it will throw error
+      if (typeof(dir)=='object') {
+        enzos.wd = pathD; 
+        return "";
+      }else return "erreur"; // If dir is buggy it will throw error
     };
 
     commands.mkdir = function (arg) {
@@ -108,8 +110,10 @@ var commands = {};
       }
     };
 
-    commands.cat = function(args) {
-
+    commands.cat = function(arg) {
+      dir = commands.ls();
+      if(arg in dir && typeof(dir[arg])!= 'object') return dir[arg].replace("\n","<br>");
+      return "";
     };
 
     commands.clear = function(args) {
@@ -130,7 +134,7 @@ var commands = {};
   }
 
   commands.use = function(fun, args="") {
-    console.log(fun + "\t" + args);
+    // console.log(fun + "\t" + args);
     if (fun in commands) {
       ret = commands[fun](args);
       return (fun=="ls") ? dirFormater(ret) : ret ;
